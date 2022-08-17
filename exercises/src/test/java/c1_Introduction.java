@@ -164,8 +164,11 @@ public class c1_Introduction extends IntroductionBase {
         CopyOnWriteArrayList<String> companyList = new CopyOnWriteArrayList<>();
 
         fortuneTop5()
-        // todo: change this line only
-        ;
+                .subscribe(
+                        data -> companyList.add(data),
+                        error -> {
+                        },
+                        () -> serviceCallCompleted.set(true));// todo: change this line only
 
         Thread.sleep(1000);
 
