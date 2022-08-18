@@ -75,7 +75,7 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
         @Test
         public void cast() {
                 Flux<String> numbersFlux = object_service()
-                                .map(i -> (String) i); // todo: change this line only
+                                .cast(String.class); // todo: change this line only
 
                 StepVerifier.create(numbersFlux)
                                 .expectNext("1", "2", "3", "4", "5")
