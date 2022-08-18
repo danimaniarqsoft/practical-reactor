@@ -119,7 +119,7 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
          */
         @Test
         public void sum_each_successive() {
-                Flux<Integer> sumEach = numerical_service()
+                Flux<Integer> sumEach = numerical_service().scan((a, b) -> a + b)
                 // todo: do your changes here
                 ;
 
