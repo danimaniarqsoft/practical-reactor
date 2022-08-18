@@ -88,7 +88,7 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
          */
         @Test
         public void maybe() {
-                Mono<String> result = maybe_service()
+                Mono<String> result = maybe_service().switchIfEmpty(Mono.just("no results"))
                 // todo: change this line only
                 ;
 
