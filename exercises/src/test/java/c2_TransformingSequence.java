@@ -48,8 +48,15 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
                 Flux<Integer> numbersFlux = numerical_service_2();
 
                 // todo: do your changes here
-                Flux<String> resultSequence = null;
-
+                Flux<String> resultSequence = numbersFlux.map(data -> {
+                        if (data > 0) {
+                                return ">";
+                        } else if (data == 0) {
+                                return "=";
+                        } else {
+                                return "<";
+                        }
+                });
                 // don't change code below
                 StepVerifier.create(resultSequence)
                                 .expectNext(">", "<", "=", ">", ">")
