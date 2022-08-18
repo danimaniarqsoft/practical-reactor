@@ -104,10 +104,8 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
          */
         @Test
         public void sequence_sum() {
-                Mono<Integer> sum = null;
-                numerical_service()
+                Mono<Integer> sum = numerical_service().reduce((a, b) -> a + b);
                 // todo: do your changes here
-                ;
 
                 StepVerifier.create(sum)
                                 .expectNext(55)
