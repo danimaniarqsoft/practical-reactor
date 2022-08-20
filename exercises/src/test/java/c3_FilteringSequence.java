@@ -59,7 +59,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
          */
         @Test
         public void economical() {
-                Flux<String> items = duplicated_records_service()
+                Flux<String> items = duplicated_records_service().distinct();
                 // todo: change this line only, use only one operator
                 ;
 
