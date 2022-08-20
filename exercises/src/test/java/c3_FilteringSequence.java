@@ -79,8 +79,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
         @Test
         public void watch_out_for_the_spiders() {
                 // todo: change code as you need
-                Mono<String> firstResult = Mono.empty();
-                fragile_service();
+                Mono<String> firstResult = fragile_service().next();
 
                 // don't change code below
                 StepVerifier.create(firstResult)
@@ -93,7 +92,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
          */
         @Test
         public void dont_take_more_then_you_need() {
-                Flux<Integer> numbers = number_service()
+                Flux<Integer> numbers = number_service().take(100)
                 // todo: change this line only
                 ;
 
@@ -107,7 +106,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
          */
         @Test
         public void not_a_binary_search() {
-                Flux<Integer> numbers = number_service()
+                Flux<Integer> numbers = number_service().takeLast(100)
                 // todo: change this line only
                 ;
 
@@ -123,7 +122,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
          */
         @Test
         public void golden_middle() {
-                Flux<Integer> numbers = number_service()
+                Flux<Integer> numbers = number_service().skip(100).take(100)
                 // todo: do your changes here
                 ;
 
